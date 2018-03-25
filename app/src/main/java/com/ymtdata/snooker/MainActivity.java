@@ -20,10 +20,12 @@ import android.widget.Toast;
 import com.squareup.picasso.Picasso;
 import com.ymtdata.snooker.adapter.SnookerTableAdapter;
 import com.ymtdata.snooker.core.adaper.DividerGridItemDecoration;
+import com.ymtdata.snooker.core.adaper.GridDividerItemDecoration;
 import com.ymtdata.snooker.core.adaper.RecyclerViewDivider;
 import com.ymtdata.snooker.core.adaper.SpacesItemDecoration;
 import com.ymtdata.snooker.databinding.ActivityMainBak2Binding;
 import com.ymtdata.snooker.databinding.ActivityMainBakBinding;
+import com.ymtdata.snooker.event.click.MoreFunctionsEventClick;
 import com.ymtdata.snooker.model.Header;
 import com.ymtdata.snooker.core.adaper.RecyclerBaseAdapter;
 import com.ymtdata.snooker.model.RecyclerModel;
@@ -72,10 +74,11 @@ public class MainActivity extends AppCompatActivity implements RecyclerBaseAdapt
 //        mAdapter.setHeaderClickListener(this);
 //        mAdapter.setFooterClickListener(this);
         //设置布局管理器
-        binding.snookerRecyclerView.setLayoutManager(new GridLayoutManager(this, 8, GridLayoutManager.VERTICAL, false ));
+        binding.snookerRecyclerView.setLayoutManager(new GridLayoutManager(this, 8));
         binding.snookerRecyclerView.setAdapter(mSnookerTableAdapter);
       //  binding.snookerRecyclerView.addItemDecoration(new RecyclerViewDivider(this, GridLayoutManager.HORIZONTAL, 10, ContextCompat.getColor(this, R.color.colorBrown)));
-binding.snookerRecyclerView.addItemDecoration(new SpacesItemDecoration(dip2px(6), dip2px(6), ContextCompat.getColor(this, R.color.colorBrown1)));
+//binding.snookerRecyclerView.addItemDecoration(new SpacesItemDecoration(dip2px(6), dip2px(6), ContextCompat.getColor(this, R.color.colorBrown1)));
+        binding.snookerRecyclerView.addItemDecoration(new GridDividerItemDecoration(dip2px(6), ContextCompat.getColor(this, R.color.colorBrown1)));
  //       binding.snookerRecyclerView.addItemDecoration(new DividerGridItemDecoration(this));
 //        binding.fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -83,6 +86,9 @@ binding.snookerRecyclerView.addItemDecoration(new SpacesItemDecoration(dip2px(6)
 //                mAdapter.removeHeadView(0);
 //            }
 //        });
+
+        binding.setMoreFunctionsEventClick(new MoreFunctionsEventClick());
+
 
         mSnookerTableAdapter.setMyItemClickListener(new RecyclerBaseAdapter.MyItemClickListener() {
             @Override

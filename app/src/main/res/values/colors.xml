@@ -10,4 +10,14 @@
     <color name="colorBlue">#1874CD</color>
     <color name="colorOrange">#CD6600</color>
     <color name="colorBrown1">#825D32</color>
+    <color name="colorWhite">#FFFFFF</color>
+
+    <color name="colorGreenBtn">#0C6F1A</color>
+    <color name="colorBtn1">#1F8361</color>
+    <color name="colorBtn2">#D76338</color>
+    <color name="colorBtn3">#B8531C</color>
+    <color name="colorBtn4">#E7920E</color>
+    <color name="colorBtn5">#CF2921</color>
+    <color name="colorBtn6">#4099EC</color>
+    <color name="colorBtn7">#999933</color>
 </resources>

@@ -1,4 +1,4 @@
-package com.ymtdata.snooker.core.adaper;
+package com.ymtdata.snooker.test;
 
 import android.graphics.Canvas;
 import android.graphics.Rect;
@@ -6,6 +6,8 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
+
+import com.ymtdata.snooker.test.SpacesItemDecorationEntrust;
 
 /**
  * 作者：请叫我百米冲刺 on 2016/12/21 下午12:45

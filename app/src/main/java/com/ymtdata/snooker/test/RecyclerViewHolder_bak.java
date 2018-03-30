@@ -1,4 +1,4 @@
-package com.ymtdata.snooker.core.adaper;
+package com.ymtdata.snooker.test;
 
 import android.databinding.ViewDataBinding;
 import android.support.v7.widget.RecyclerView;

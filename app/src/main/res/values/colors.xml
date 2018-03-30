@@ -20,4 +20,13 @@
     <color name="colorBtn5">#CF2921</color>
     <color name="colorBtn6">#4099EC</color>
     <color name="colorBtn7">#999933</color>
+    <color name="colorPop">#996C33</color>
+
+    <color name="colorListTitle">#723A0E</color>
+    <color name="colorListBack">#DBC9B0</color>
+    <color name="colorBtn8">#996C33</color>
+    <color name="colorBtnBack">#7E6B5A</color>
+    <color name="colorBtnRed">#DA1A00</color>
+
+
 </resources>

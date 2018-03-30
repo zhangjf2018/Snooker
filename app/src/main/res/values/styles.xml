@@ -8,9 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AnimationLeftFade">
-        <item name="android:windowEnterAnimation">@anim/pop_in_right2left</item>
-        <item name="android:windowExitAnimation">@anim/pop_out_left2right</item>
+    <style name="AnimationRightFade">
+        <item name="android:windowEnterAnimation">@anim/pop_in_right</item>
+        <item name="android:windowExitAnimation">@anim/pop_out_left</item>
     </style>
 
 

@@ -1,71 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
-    <data>
-        <import type="android.view.View"/>
-        <variable
-            name="moreFunctionsEventClick"
-            type="com.ymtdata.snooker.event.click.MoreFunctionsClick" />
-    </data>
+
+<layout  xmlns:android="http://schemas.android.com/apk/res/android">
+    <data></data>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context="com.ymtdata.snooker.MainActivity">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:gravity="center_vertical"
-            android:background="@color/colorBrown">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="深圳市特奢汇桌球联盟 O2O CLUB"
-                android:layout_weight="3"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="12:21"
-                android:layout_weight="2"/>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:layout_weight="2">
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/msg"/>
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/computer"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="收银员:"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="张三"/>
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"/>
-
-                <Button
-                    android:id="@+id/btnMoreFunctions"
-                    android:layout_marginLeft="10dp"
-                    android:layout_gravity="right"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:onClick="@{moreFunctionsEventClick::popMenu}"
-                    android:text="更多功能"/>
-            </LinearLayout>
-        </LinearLayout>
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -76,7 +16,7 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="8.8"
+                android:layout_weight="8.75"
                 >
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/snookerRecyclerView"
@@ -92,7 +32,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:background="@color/colorBrownDark"
-                android:layout_weight="1.2"
+                android:layout_weight="1.25"
                 android:orientation="vertical">
                 <TextView
                     android:layout_width="match_parent"
@@ -229,6 +169,5 @@
             </LinearLayout>
 
         </LinearLayout>
-
     </LinearLayout>
 </layout>

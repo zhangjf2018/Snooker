@@ -1,4 +1,4 @@
-package com.ymtdata.snooker.core.adaper;
+package com.ymtdata.snooker.test;
 
 import android.content.Context;
 import android.content.res.TypedArray;

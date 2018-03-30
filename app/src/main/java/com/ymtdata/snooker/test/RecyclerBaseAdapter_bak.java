@@ -1,4 +1,4 @@
-package com.ymtdata.snooker.core.adaper;
+package com.ymtdata.snooker.test;
 
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.ymtdata.snooker.core.adaper.RecyclerViewHolder;
 import com.ymtdata.snooker.model.RecyclerModel;
 
 import java.util.ArrayList;

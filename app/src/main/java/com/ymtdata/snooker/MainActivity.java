@@ -1,16 +1,13 @@
 package com.ymtdata.snooker;
 
+import android.content.Context;
 import android.databinding.BindingAdapter;
 import android.databinding.DataBindingUtil;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
+import android.os.Handler;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
@@ -18,26 +15,23 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
-import com.ymtdata.snooker.adapter.SnookerTableAdapter;
-import com.ymtdata.snooker.core.adaper.DividerGridItemDecoration;
-import com.ymtdata.snooker.core.adaper.GridDividerItemDecoration;
-import com.ymtdata.snooker.core.adaper.RecyclerViewDivider;
-import com.ymtdata.snooker.core.adaper.SpacesItemDecoration;
-import com.ymtdata.snooker.databinding.ActivityMainBak2Binding;
-import com.ymtdata.snooker.databinding.ActivityMainBakBinding;
-import com.ymtdata.snooker.event.click.MoreFunctionsEventClick;
-import com.ymtdata.snooker.model.Header;
+import com.ymtdata.snooker.adapter.SnookerTableGridAdapter;
+import com.ymtdata.snooker.core.CustomApplication;
+import com.ymtdata.snooker.core.adaper.ViewChangeAdapter;
+import com.ymtdata.snooker.core.view.NoScrollViewPager;
+import com.ymtdata.snooker.databinding.ActivityMainBak3Binding;
+import com.ymtdata.snooker.event.click.MoreFunctionsClick;
 import com.ymtdata.snooker.core.adaper.RecyclerBaseAdapter;
-import com.ymtdata.snooker.model.RecyclerModel;
 import com.ymtdata.snooker.model.SnookerTable;
 import com.ymtdata.snooker.model.User;
 import com.ymtdata.snooker.adapter.UserAdapter;
-import com.ymtdata.snooker.databinding.ActivityMainBinding;
+import com.ymtdata.snooker.view.FragmentHome;
+import com.ymtdata.snooker.view.FragmentStand;
+import com.ymtdata.snooker.test.Fragment3;
+import com.ymtdata.snooker.view.FragmentStandList;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static android.widget.GridLayout.VERTICAL;
 
 /**
  * Created by zhangjifeng on 2018/3/21.
@@ -47,19 +41,107 @@ import static android.widget.GridLayout.VERTICAL;
 public class MainActivity extends AppCompatActivity implements RecyclerBaseAdapter.OnHeaderClickListener,RecyclerBaseAdapter.OnFooterClickListener {
 
     private UserAdapter mAdapter;
-    private SnookerTableAdapter mSnookerTableAdapter;
+    private SnookerTableGridAdapter mSnookerTableAdapter;
     private List<User> mUsers;
+    private List<Fragment> mFragment;
+    private List<String> mTitle;
     private List<SnookerTable> mSnookerTables;
+    private ViewChangeAdapter mmAdapter;
+    private ActivityMainBak3Binding mBinding;
+    int i = 0 ;
+
+    private FragmentSkipInterface mFragmentSkipInterface;
+
+    public void setFragmentSkipInterface(FragmentSkipInterface fragmentSkipInterface) {
+        mFragmentSkipInterface = fragmentSkipInterface;
+    }
+
+    /** Fragment跳转 */
+    public void skipToFragment(){
+        if(mFragmentSkipInterface != null){
+            mFragmentSkipInterface.gotoFragment(this.mBinding.topViewPager);
+        }
+    }
+
+    public interface FragmentSkipInterface {
+        /** ViewPager中子Fragment之间跳转的实现方法 */
+        void gotoFragment(NoScrollViewPager viewPager);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActivityMainBak2Binding binding = DataBindingUtil.setContentView(this, R.layout.activity_main_bak2);
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main_bak3);
         mUsers = new ArrayList<>();
         mSnookerTables = new ArrayList<>();
         setData();
         mAdapter = new UserAdapter(mUsers);
-        mSnookerTableAdapter = new SnookerTableAdapter(mSnookerTables);
+        final Context cm = this;
+        mSnookerTableAdapter = new SnookerTableGridAdapter(mSnookerTables);
+
+        //初始化Fragment
+        FragmentHome fragment1 = new FragmentHome();
+        FragmentStand fragment2 = new FragmentStand();
+        Fragment3 fragment3 = new Fragment3();
+        FragmentStandList fragmentStandList = new FragmentStandList();
+
+        //将Fragment装进列表中
+        mFragment = new ArrayList<>();
+        mFragment.add(fragment1);
+        mFragment.add(fragment2);
+        mFragment.add(fragment3);
+        mFragment.add(fragmentStandList);
+
+        ((CustomApplication) getApplication()).initFragmentMap(mFragment);
+
+        //将名称添加daoTab列表
+        mTitle = new ArrayList<>();
+        mTitle.add("Tab1");
+        mTitle.add("Tab2");
+        mTitle.add("Tab3");
+
+        //为TabLayout添加Tab名称
+
+        mmAdapter = new ViewChangeAdapter(getSupportFragmentManager(), mFragment, mTitle);
+
+        //ViewPager加载Adapter
+        mBinding.topViewPager.setAdapter(mmAdapter);
+
+        mBinding.topViewPager.setNoScroll(true);
+        mBinding.topViewPager.setCurrentItem(0);
+        ((CustomApplication) getApplication()).setmNoScrollViewPager(mBinding.topViewPager);
+
+        Runnable r = new Runnable() {
+            @Override
+            public void run() {
+                i ++;
+                //mBinding.topViewPager.setCurrentItem( i % 2 );
+                //每隔1s循环执行run方法
+                mHandler.postDelayed(this, 1000);
+            }
+        };
+
+
+        mHandler.postDelayed(r, 100);//延时100毫秒
+
+        //TabLayout加载ViewPager
+        //mBinding.topTabLayout.setupWithViewPager(mBinding.topViewPager);
+
+//        binding.viewStub.setOnInflateListener(new ViewStub.OnInflateListener() {
+//            @Override
+//            public void onInflate(ViewStub stub, View inflated) {
+//
+//                MainSubBinding binding2 = DataBindingUtil.bind(inflated);
+//                binding2.snookerRecyclerView.setLayoutManager(new GridLayoutManager(inflated.getContext(),8));
+//                binding2.snookerRecyclerView.setAdapter(mSnookerTableAdapter);
+//                binding2.snookerRecyclerView.addItemDecoration(new GridDividerItemDecoration(dip2px(6), ContextCompat.getColor(inflated.getContext(), R.color.colorBrown1)));
+//            }
+//        });
+//
+//        if (!binding.viewStub.isInflated()) {
+//            binding.viewStub.getViewStub().inflate();
+//        }
+
  //      RecyclerModel<Header> recyclerModel1 = new RecyclerModel<>(R.layout.header_item_1, com.ymtdata.snooker.BR.header1,new Header("我是头部1"));
 //        RecyclerModel<Header> recyclerModel2 = new RecyclerModel<>(R.layout.header_item_1, com.ymtdata.snooker.BR.header1,new Header("我是头部2"));
 
@@ -74,12 +156,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerBaseAdapt
 //        mAdapter.setHeaderClickListener(this);
 //        mAdapter.setFooterClickListener(this);
         //设置布局管理器
-        binding.snookerRecyclerView.setLayoutManager(new GridLayoutManager(this, 8));
-        binding.snookerRecyclerView.setAdapter(mSnookerTableAdapter);
-      //  binding.snookerRecyclerView.addItemDecoration(new RecyclerViewDivider(this, GridLayoutManager.HORIZONTAL, 10, ContextCompat.getColor(this, R.color.colorBrown)));
-//binding.snookerRecyclerView.addItemDecoration(new SpacesItemDecoration(dip2px(6), dip2px(6), ContextCompat.getColor(this, R.color.colorBrown1)));
-        binding.snookerRecyclerView.addItemDecoration(new GridDividerItemDecoration(dip2px(6), ContextCompat.getColor(this, R.color.colorBrown1)));
- //       binding.snookerRecyclerView.addItemDecoration(new DividerGridItemDecoration(this));
+//        binding.snookerRecyclerView.setLayoutManager(new GridLayoutManager(this, 8));
+//        binding.snookerRecyclerView.setAdapter(mSnookerTableAdapter);
+ //       binding.snookerRecyclerView.addItemDecoration(new GridDividerItemDecoration(dip2px(6), ContextCompat.getColor(this, R.color.colorBrown1)));
 //        binding.fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -87,7 +166,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerBaseAdapt
 //            }
 //        });
 
-        binding.setMoreFunctionsEventClick(new MoreFunctionsEventClick());
+        mBinding.setMoreFunctionsEventClick(new MoreFunctionsClick(this, mBinding.btnMoreFunctions, mBinding.topViewPager));
 
 
         mSnookerTableAdapter.setMyItemClickListener(new RecyclerBaseAdapter.MyItemClickListener() {
@@ -104,6 +183,10 @@ public class MainActivity extends AppCompatActivity implements RecyclerBaseAdapt
         });
 
     }
+
+    Handler mHandler = new Handler();
+
+
     public int dip2px(float dpValue) {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dpValue, getResources().getDisplayMetrics());
     }

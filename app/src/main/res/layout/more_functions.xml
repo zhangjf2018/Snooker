@@ -44,6 +44,7 @@
                 android:paddingRight="10dp"
                 android:paddingBottom="4dp"
                 android:paddingTop="4dp"
+                android:tag="FragmentLadderPlayer"
                 android:text="陪练"/>
         </TableRow>
         <TableRow>

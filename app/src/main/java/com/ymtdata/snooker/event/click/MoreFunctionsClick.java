@@ -62,7 +62,7 @@ public class MoreFunctionsClick implements View.OnClickListener {
         LayoutInflater mInflater = LayoutInflater.from(mContext);
         MoreFunctionsBinding mDataBinding =  DataBindingUtil.inflate(mInflater, R.layout.more_functions, null, false);
         View popupWindowView = mDataBinding.getRoot();
-        mDataBinding.tvStand.setOnClickListener(this);
+
         int view_id = mContext.getResources().getIdentifier("tv_stand", "id", mContext.getPackageName());
         Log.e("viewId", view_id+"");
        // view_id = popupWindowView.getResources().getIdentifier("tv_ladderPlayer", "id", mContext.getPackageName());
@@ -90,6 +90,7 @@ public class MoreFunctionsClick implements View.OnClickListener {
                 return false;
             }
         });
+        initClickListener(mDataBinding);
 
 //        Button open = (Button)popupWindowView.findViewById(R.id.open);
 //        Button save = (Button)popupWindowView.findViewById(R.id.save);
@@ -115,5 +116,9 @@ public class MoreFunctionsClick implements View.OnClickListener {
         ((Activity)mContext).getWindow().setAttributes(lp);
     }
 
+    private void initClickListener(MoreFunctionsBinding moreFunctionsBinding){
+        moreFunctionsBinding.tvStand.setOnClickListener(this);
+        moreFunctionsBinding.tvLadderPlayer.setOnClickListener(this);
+    }
 
 }

@@ -26,6 +26,7 @@ import com.ymtdata.snooker.model.SnookerTable;
 import com.ymtdata.snooker.model.User;
 import com.ymtdata.snooker.adapter.UserAdapter;
 import com.ymtdata.snooker.view.FragmentHome;
+import com.ymtdata.snooker.view.FragmentLadderPlayer;
 import com.ymtdata.snooker.view.FragmentStand;
 import com.ymtdata.snooker.test.Fragment3;
 import com.ymtdata.snooker.view.FragmentStandList;
@@ -91,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerBaseAdapt
         mFragment.add(fragment2);
         mFragment.add(fragment3);
         mFragment.add(fragmentStandList);
+        mFragment.add(new FragmentLadderPlayer());
 
         ((CustomApplication) getApplication()).initFragmentMap(mFragment);
 

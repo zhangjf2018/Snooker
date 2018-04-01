@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-        <variable name="ladderPlayerModel" type="com.ymtdata.snooker.model.LadderPlayerModel"/>
+        <variable name="ladderPlayerRecordModel" type="com.ymtdata.snooker.model.LadderPlayerRecordModel"/>
     </data>
 
     <RelativeLayout
@@ -26,7 +26,7 @@
                 android:layout_weight="1"
                 android:textSize="15sp"
                 android:gravity="left"
-                android:text="@{ladderPlayerModel.id}"/>
+                android:text="@{ladderPlayerRecordModel.id}"/>
 
             <TextView
                 android:layout_width="0dp"
@@ -34,7 +34,15 @@
                 android:layout_weight="1.5"
                 android:gravity="left"
                 android:textSize="15sp"
-                android:text="@{ladderPlayerModel.name}"/>
+                android:text="@{ladderPlayerRecordModel.name}"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:gravity="left"
+                android:layout_weight="1.5"
+                android:text="10:10"/>
 
             <TextView
                 android:layout_width="0dp"
@@ -51,6 +59,20 @@
                 android:gravity="left"
                 android:layout_weight="1.5"
                 android:text="3元/小时"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:gravity="left"
+                android:layout_weight="1.5"
+                android:text="VIP3"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
+                android:gravity="left"
+                android:layout_weight="1.5"
+                android:text="结束陪练"/>
         </LinearLayout>
 </RelativeLayout>
 </layout>

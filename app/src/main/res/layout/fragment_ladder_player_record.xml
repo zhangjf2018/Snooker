@@ -73,7 +73,7 @@
                             android:textSize="15sp"
                             android:paddingLeft="10dp"
                             android:paddingRight="5dp"
-                            android:text="陪练人员列表"
+                            android:text="陪练记录列表"
                             />
 
                         <TextView
@@ -137,7 +137,26 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1.5"
                             android:textSize="15sp"
+                            android:text="陪练开始时间"/>
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.5"
+                            android:textSize="15sp"
                             android:text="价格"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.5"
+                            android:textSize="15sp"
+                            android:text="服务台名"/>
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.5"
+                            android:textSize="15sp"
+                            android:text="操作"/>
                     </LinearLayout>
                     <ImageView
                         android:layout_width="match_parent"
@@ -162,56 +181,17 @@
                 android:layout_height="match_parent"
                 android:background="@color/colorBrownDark"
                 android:layout_weight="1.25"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:orientation="vertical">
-                <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/pic_order"/>
 
-                <TextView
-                    android:layout_marginTop="2dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/colorWhite"
-                    android:textSize="15sp"
-                    android:text="是否下单?"/>
-
-                <TextView
-                    android:id="@+id/tv_laderPlayerRecordList"
-                    android:tag="FragmentLadderPlayerRecord"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="3dp"
-                    android:paddingBottom="3dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:gravity="center_horizontal"
-                    android:layout_marginRight="8dp"
-                    android:textColor="@color/colorWhite"
-                    android:background="@color/colorBtn8"
-                    android:text="陪练列表"/>
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="3dp"
-                    android:paddingBottom="3dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginLeft="8dp"
-                    android:gravity="center_horizontal"
-                    android:layout_marginRight="8dp"
-                    android:textColor="@color/colorWhite"
-                    android:background="@color/colorBtn8"
-                    android:text="确认"/>
                 <TextView
                     android:id="@+id/tv_back"
-                    android:tag="FragmentHome"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="3dp"
                     android:paddingBottom="3dp"
                     android:layout_marginTop="8dp"
+                    android:tag="FragmentLadderPlayer"
                     android:layout_marginLeft="8dp"
                     android:gravity="center_horizontal"
                     android:layout_marginRight="8dp"

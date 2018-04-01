@@ -55,6 +55,7 @@
                 android:background="@color/colorBrown"
                 android:textColor="@color/colorWhite"
                 android:textSize="11sp"
+                android:tag="BookFragment"
                 android:layout_marginTop="6dp"
                 android:paddingBottom="4dp"
                 android:paddingTop="4dp"

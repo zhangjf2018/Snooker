@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:background="@color/colorBrown1"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:baselineAligned="false"
+            android:orientation="horizontal"
+            android:weightSum="10">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="8.75"
+                android:orientation="vertical"
+                android:paddingTop="6dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:gravity="center"
+                    android:background="@drawable/top_title_shape"
+                    >
+                    <TextView
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="15sp"
+                        android:text="VIP12"/>
+                    <TextView
+                        android:layout_marginLeft="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="15sp"
+                        android:text="预约"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/colorListBack">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="手机号"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="登记卡号"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/colorListBack">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="预约时间"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="2015-10-14 10:30"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@color/colorBack1"
+                    android:layout_weight="2">
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+                        <TextView
+                            android:id="@+id/tv_date"
+                            android:visibility="gone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_gravity="center_horizontal"
+                            android:textColor="#000000"
+                            android:textSize="20sp"
+                            tools:text="2016-04-26" />
+
+                        <FrameLayout
+                            android:visibility="gone"
+                            android:id="@+id/fl_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp">
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:id="@+id/rl_tool"
+                            android:layout_width="match_parent"
+                            android:layout_height="35dp"
+                            android:gravity="center"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:orientation="horizontal"
+                            >
+                            <ImageView
+                                android:id="@+id/tv_arrLeft"
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:src="@drawable/arr_left"/>
+
+                            <TextView
+                                android:id="@+id/tv_month_year"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:paddingLeft="16dp"
+                                android:textColor="#000000"
+                                android:textSize="18sp"
+                                tools:ignore="RtlSymmetry" />
+
+                            <FrameLayout
+                                android:id="@+id/fl_current"
+                                android:layout_marginLeft="100dp"
+                                android:layout_width="32dp"
+                                android:layout_height="32dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="12dp"
+                                android:background="@drawable/bg_ripple">
+
+                                <ImageView
+                                    android:id="@+id/ib_calendar"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:contentDescription="@string/app_name"
+                                    android:scaleType="centerInside"
+                                    android:src="@mipmap/menu_action_calendar_mvp"
+                                    android:tint="#000000" />
+
+                                <TextView
+                                    android:id="@+id/tv_current_day"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="2dp"
+                                    android:gravity="center"
+                                    android:text="13"
+                                    android:textColor="#000000"
+                                    android:textSize="12sp" />
+                            </FrameLayout>
+                            <ImageView
+                                android:id="@+id/tv_arrRight"
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:src="@drawable/arr_right"/>
+                        </LinearLayout>
+
+                        <com.haibin.calendarview.CalendarLayout
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:id="@+id/calendarLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorCal"
+                            android:orientation="vertical"
+                            app:calendar_content_view_id="@+id/recyclerView">
+
+                        <com.haibin.calendarview.CalendarView
+                            android:id="@+id/calendarView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/colorCal"
+                            app:month_view="com.ymtdata.snooker.core.view.ColorfulMonthView"
+                            app:current_month_lunar_text_color="#CFCFCF"
+                            app:current_month_text_color="#333333"
+                            app:min_year="2018"
+                            app:calendar_height="47dp"
+                            app:other_month_text_color="#e1e1e1"
+                            app:scheme_text="假"
+                            app:scheme_text_color="#fff"
+                            app:scheme_theme_color="#128c4b"
+                            app:scheme_lunar_text_color="#ffffff"
+                            app:selected_lunar_text_color="#fff"
+                            app:selected_text_color="#fff"
+                            app:selected_theme_color="#108cd4"
+                            app:week_background="#BCA387"
+                            app:week_text_color="#111"
+                            app:week_view="com.ymtdata.snooker.core.view.ColorfulWeekView"
+                            app:year_view_day_text_color="#333333"
+                            app:year_view_day_text_size="9sp"
+                            app:year_view_month_text_color="#ff0000"
+                            app:year_view_month_text_size="20sp"
+                            app:year_view_scheme_color="#f17706" />
+
+                        </com.haibin.calendarview.CalendarLayout>
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <LinearLayout
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="具体时间："/>
+
+                            <TextView
+                                android:id="@+id/tv_selectTime"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="10 点 30 分"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:weightSum="8"
+                            android:layout_marginTop="10dp">
+                            <ImageView
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/minus_alt"
+                                android:layout_weight="1"
+                                android:id="@+id/iv_hourMinus"/>
+
+                            <SeekBar
+                                android:id="@+id/sb_hour"
+                                android:layout_width="0dp"
+                                android:layout_weight="6"
+                                android:layout_height="wrap_content"
+                                android:maxHeight="6dp"
+                                android:minHeight="6dp"
+                                android:max="23"
+                                android:progressDrawable="@drawable/layer_progress"
+                                android:thumb="@drawable/shape_seekbar"   />
+
+                            <ImageView
+                                android:id="@+id/iv_hourAdd"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:src="@mipmap/plus_alt"/>
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:weightSum="8"
+                            android:layout_marginTop="10dp">
+                            <ImageView
+                                android:id="@+id/iv_minMinus"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:src="@mipmap/minus_alt"
+                                android:layout_weight="1"/>
+
+                            <SeekBar
+                                android:id="@+id/sb_min"
+                                android:layout_width="0dp"
+                                android:layout_weight="6"
+                                android:layout_height="wrap_content"
+                                android:maxHeight="6dp"
+                                android:minHeight="6dp"
+                                android:max="59"
+                                android:progressDrawable="@drawable/layer_progress"
+                                android:thumb="@drawable/shape_seekbar"   />
+
+                            <ImageView
+                                android:id="@+id/iv_minAdd"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:src="@mipmap/plus_alt"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="@color/colorBrownDark"
+                android:layout_weight="1.25"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_back"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:layout_marginTop="8dp"
+                    android:tag="FragmentLadderPlayer"
+                    android:layout_marginLeft="8dp"
+                    android:gravity="center_horizontal"
+                    android:layout_marginRight="8dp"
+                    android:textColor="@color/colorWhite"
+                    android:background="@color/colorBtnBack"
+                    android:text="返回"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

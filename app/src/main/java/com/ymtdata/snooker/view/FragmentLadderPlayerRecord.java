@@ -5,50 +5,46 @@ import android.databinding.ObservableArrayList;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.ymtdata.snooker.R;
-import com.ymtdata.snooker.adapter.LadderPlayerAdapter;
-import com.ymtdata.snooker.adapter.SnookerTableBabyListAdapter;
+import com.ymtdata.snooker.adapter.LadderPlayerRecordAdapter;
 import com.ymtdata.snooker.core.CustomApplication;
 import com.ymtdata.snooker.core.base.BaseFragment;
 import com.ymtdata.snooker.core.utils.ListFactory;
 import com.ymtdata.snooker.databinding.FragmentLadderPlayerBinding;
-import com.ymtdata.snooker.databinding.FragmentStandBinding;
-import com.ymtdata.snooker.model.LadderPlayerModel;
-import com.ymtdata.snooker.model.SnookerBabyModel;
+import com.ymtdata.snooker.databinding.FragmentLadderPlayerRecordBinding;
+import com.ymtdata.snooker.model.LadderPlayerRecordModel;
 
 /**
  * Created by qiudengjiao on 2017/5/8.
  */
 
-public class FragmentLadderPlayer extends BaseFragment implements View.OnClickListener {
+public class FragmentLadderPlayerRecord extends BaseFragment implements View.OnClickListener {
 
-    private LadderPlayerAdapter mLadderPlayerAdapter;
-    private ObservableArrayList<LadderPlayerModel> mLadderPlayerModelList;
+    private LadderPlayerRecordAdapter mLadderPlayerRecordAdapter;
+    private ObservableArrayList<LadderPlayerRecordModel> mLadderPlayerRecordModelList;
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
-        FragmentLadderPlayerBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_ladder_player, container, false);
+        FragmentLadderPlayerRecordBinding binding = DataBindingUtil.inflate(inflater, R.layout.fragment_ladder_player_record, container, false);
 
-        mLadderPlayerModelList = new ObservableArrayList<>();
+        mLadderPlayerRecordModelList = new ObservableArrayList<>();
         setData();
-        mLadderPlayerAdapter = new LadderPlayerAdapter(mLadderPlayerModelList);
+        mLadderPlayerRecordAdapter = new LadderPlayerRecordAdapter(mLadderPlayerRecordModelList);
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        binding.recyclerView.setAdapter(mLadderPlayerAdapter);
+        binding.recyclerView.setAdapter(mLadderPlayerRecordAdapter);
 
-        mLadderPlayerModelList.addOnListChangedCallback(ListFactory.getListChangedCallback(mLadderPlayerAdapter));
+        mLadderPlayerRecordModelList.addOnListChangedCallback(ListFactory.getListChangedCallback(mLadderPlayerRecordAdapter));
 
         binding.ivRight.setOnClickListener(this);
         binding.tvBack.setOnClickListener(this);
-        binding.tvLaderPlayerRecordList.setOnClickListener(this);
+
        // binding.recyclerView.addItemDecoration(new GridDividerItemDecoration(dip2px(6), ContextCompat.getColor(getContext(), R.color.colorBrown1)));
         return binding.getRoot();
     }
@@ -60,18 +56,18 @@ public class FragmentLadderPlayer extends BaseFragment implements View.OnClickLi
     private void setData(){
 
         for(int i = 0; i < 100; i++){
-            LadderPlayerModel st = new LadderPlayerModel();
+            LadderPlayerRecordModel st = new LadderPlayerRecordModel();
 
             st.setId(i +"");
             st.setName("扎进是" + i);
             st.setGender(i+"");
 
-            mLadderPlayerModelList.add(st);
+            mLadderPlayerRecordModelList.add(st);
         }
     }
 
     @Override
     public void onClick(View view) {
-         ((CustomApplication) getActivity().getApplication()).fragmentViewChangeTo(view.getTag().toString());
+          ((CustomApplication) getActivity().getApplication()).fragmentViewChangeTo(view.getTag().toString());
     }
 }

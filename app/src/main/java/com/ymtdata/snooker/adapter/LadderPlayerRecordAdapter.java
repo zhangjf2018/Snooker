@@ -5,6 +5,7 @@ import com.ymtdata.snooker.R;
 import com.ymtdata.snooker.core.adaper.RecyclerBaseAdapter;
 import com.ymtdata.snooker.core.adaper.RecyclerViewHolder;
 import com.ymtdata.snooker.model.LadderPlayerModel;
+import com.ymtdata.snooker.model.LadderPlayerRecordModel;
 
 import java.util.List;
 
@@ -13,20 +14,20 @@ import java.util.List;
  * email : 414512194@qq.com
  * desc  :
  */
-public class LadderPlayerAdapter extends RecyclerBaseAdapter<LadderPlayerModel> {
+public class LadderPlayerRecordAdapter extends RecyclerBaseAdapter<LadderPlayerRecordModel> {
 
-    public LadderPlayerAdapter(List<LadderPlayerModel> mData) {
+    public LadderPlayerRecordAdapter(List<LadderPlayerRecordModel> mData) {
         super(mData);
     }
 
     @Override
     public int getItemLayoutId(int viewType) {
-        return R.layout.ladder_player_list_item;
+        return R.layout.ladder_player_record_list_item;
     }
 
     @Override
     public int getVariableId(int viewType) {
-        return BR.ladderPlayerModel;
+        return BR.ladderPlayerRecordModel;
     }
 
     @Override
@@ -35,7 +36,7 @@ public class LadderPlayerAdapter extends RecyclerBaseAdapter<LadderPlayerModel> 
     }
 
     @Override
-    public void bindCustomData(RecyclerViewHolder holder, int position, LadderPlayerModel item) {
+    public void bindCustomData(RecyclerViewHolder holder, int position, LadderPlayerRecordModel item) {
 
     }
 

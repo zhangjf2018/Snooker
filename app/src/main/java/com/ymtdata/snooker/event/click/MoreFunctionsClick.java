@@ -119,6 +119,7 @@ public class MoreFunctionsClick implements View.OnClickListener {
     private void initClickListener(MoreFunctionsBinding moreFunctionsBinding){
         moreFunctionsBinding.tvStand.setOnClickListener(this);
         moreFunctionsBinding.tvLadderPlayer.setOnClickListener(this);
+        moreFunctionsBinding.tvBooking.setOnClickListener(this);
     }
 
 }

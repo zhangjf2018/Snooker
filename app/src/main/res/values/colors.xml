@@ -27,6 +27,22 @@
     <color name="colorBtn8">#996C33</color>
     <color name="colorBtnBack">#7E6B5A</color>
     <color name="colorBtnRed">#DA1A00</color>
+    <color name="colorBack1">#E5D3BA</color>
+    <color name="colorCal">#BCA387</color>
+    <color name="colorSeekBarOrigin">#F9A31A</color>
+    <color name="colorSeekBarGreen">#86C440</color>
+
+
+    <color name="custom_header_text">#85B100</color>
+    <color name="custom_selected">#A8D324</color>
+    <color name="custom_background">#F0F8DB</color>
+    <color name="custom_background_today">#FF9105</color>
+    <color name="custom_background_disabled">#F0F8DB</color>
+    <color name="custom_text_selected">#FFFFFFFF</color>
+    <color name="custom_text_inactive">#7f778088</color>
+    <color name="transparent">#00000000</color>
+
+
 
 
 </resources>

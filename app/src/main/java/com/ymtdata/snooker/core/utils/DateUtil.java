@@ -20,4 +20,8 @@ public class DateUtil {
         return Integer.parseInt(mm);
     }
 
+    public static String getDate(String format){
+        return new SimpleDateFormat(format).format(new Date());
+    }
+
 }

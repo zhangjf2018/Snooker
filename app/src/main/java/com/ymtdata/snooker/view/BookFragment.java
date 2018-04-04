@@ -26,6 +26,7 @@ import com.joybar.librarycalendar.fragment.CalendarViewFragment;
 import com.joybar.librarycalendar.fragment.CalendarViewPagerFragment;
 import com.ymtdata.snooker.R;
 import com.ymtdata.snooker.adapter.SnookerTableGridAdapter;
+import com.ymtdata.snooker.constant.DateFormatConstant;
 import com.ymtdata.snooker.core.base.BaseFragment;
 import com.ymtdata.snooker.core.utils.DateUtil;
 import com.ymtdata.snooker.databinding.FragmentBookBinding;
@@ -84,6 +85,9 @@ public class BookFragment extends BaseFragment implements
         int year = binding.calendarView.getCurYear();
         int month = binding.calendarView.getCurMonth();
 
+        binding.tvBookDate.setText(DateUtil.getDate(DateFormatConstant.YYYY_MM_DD));
+        binding.tvBookTime.setText(DateUtil.getDate(DateFormatConstant.HH_MM));
+
 //        schemes.add(getSchemeCalendar(year, month, 3, 0xFF40db25, "假"));
 //        schemes.add(getSchemeCalendar(year, month, 6, 0xFFe69138, "事"));
 //        schemes.add(getSchemeCalendar(year, month, 9, 0xFFdf1356, "议"));
@@ -115,7 +119,7 @@ public class BookFragment extends BaseFragment implements
     @SuppressLint("SetTextI18n")
     @Override
     public void onDateSelected(Calendar calendar, boolean isClick) {
-
+        binding.tvBookDate.setText( calendar.getYear() + "-"+formatMonth(calendar.getMonth())+"-"+formatMonth(calendar.getDay()) );
         binding.tvMonthYear.setText(formatMonth(calendar.getMonth()) + "月" + calendar.getYear() + "年");
         mYear = calendar.getYear();
     }
@@ -165,11 +169,12 @@ public class BookFragment extends BaseFragment implements
                 binding.sbMin.setProgress(progress - 1);
                 break;
         }
+
+        binding.tvBookTime.setText(formatMonth(binding.sbHour.getProgress())+":"+formatMonth(binding.sbMin.getProgress()));
     }
 
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-        Toast.makeText(getContext(),""+progress, Toast.LENGTH_LONG).show();
         binding.tvSelectTime.setText(binding.sbHour.getProgress()+" 点 " + binding.sbMin.getProgress()+ " 分");
     }
 
